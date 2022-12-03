@@ -6,6 +6,7 @@ director
 actor
   player
     contains a deck 
+    
   deck
     contains chars and a draw function
 
