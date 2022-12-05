@@ -36,6 +36,7 @@ namespace Example.Scaling
 
             // Instantiate the actions that use the actors.
             SteerActorAction steerActorAction = new SteerActorAction(serviceFactory);
+            RotateActorAction rotateActorAction = new RotateActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
 
@@ -45,6 +46,7 @@ namespace Example.Scaling
             scene.AddActor("labels", label);
             scene.AddActor("screen", screen);
             scene.AddAction(Phase.Input, steerActorAction);
+            scene.AddAction(Phase.Input, rotateActorAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
 

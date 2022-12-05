@@ -39,14 +39,14 @@ namespace Example.Scaling
                 }
 
                 // determine horizontal or x-axis direction
-                if (_keyboardService.IsKeyDown(KeyboardKey.A))
-                {
-                    directionX = -5;
-                }
-                else if (_keyboardService.IsKeyDown(KeyboardKey.D))
-                {
-                    directionX = 5;
-                }
+                // if (_keyboardService.IsKeyDown(KeyboardKey.A))
+                // {
+                //     directionX = -5;
+                // }
+                // else if (_keyboardService.IsKeyDown(KeyboardKey.D))
+                // {
+                //     directionX = 5;
+                // }
 
                 // steer the actor in the desired direction
                 Actor actor = scene.GetFirstActor("actors");
