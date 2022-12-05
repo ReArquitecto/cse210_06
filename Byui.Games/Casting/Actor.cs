@@ -124,7 +124,7 @@ namespace Byui.Games.Casting
             return _position.X + _size.X;
         }
 
-        public virtual float GetRotation()
+        public float GetRotation()
         {
             return _rotation;
         }

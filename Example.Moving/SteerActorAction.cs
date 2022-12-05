@@ -24,14 +24,28 @@ namespace Example.Scaling
         {
             try
             {
+                Actor actor = scene.GetFirstActor("actors");
                 // declare direction variables
                 int directionX = 0;
                 int directionY = 0;
+                float rotation = actor.GetRotation();
+                
+
+                rotation = (rotation % 360);
+
+                if(rotation < 0){
+                    rotation = 360 + rotation;
+                }
+                
+                rotation = rotation *(float) (3.14159/180);
 
                 // determine vertical or y-axis direction
                 if (_keyboardService.IsKeyDown(KeyboardKey.W))
                 {
-                    directionY = -5;
+                    directionX = (int)Math.Round(Math.Cos(rotation) * 5);
+                    directionY = (int)Math.Round(Math.Sin(rotation) * 5);
+                    
+                    
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.S))
                 {
@@ -49,7 +63,6 @@ namespace Example.Scaling
                 // }
 
                 // steer the actor in the desired direction
-                Actor actor = scene.GetFirstActor("actors");
                 actor.Steer(directionX, directionY);
             }
             catch (Exception exception)
