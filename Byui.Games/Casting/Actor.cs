@@ -104,7 +104,7 @@ namespace Byui.Games.Casting
             return _position.Y + (_size.Y / 2);
         }
 
-        public virtual float GetHeight()
+        public float GetHeight()
         {
             return _size.Y;
         }
@@ -139,7 +139,7 @@ namespace Byui.Games.Casting
             return _scale;
         }
 
-        public virtual Vector2 GetSize()
+        public Vector2 GetSize()
         {
             return _size * _scale;
         }
@@ -159,7 +159,7 @@ namespace Byui.Games.Casting
             return _velocity;
         }
 
-        public virtual float GetWidth()
+        public float GetWidth()
         {
             return _size.X;
         }

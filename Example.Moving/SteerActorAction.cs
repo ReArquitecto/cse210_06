@@ -47,10 +47,10 @@ namespace Example.Scaling
                     
                     
                 }
-                else if (_keyboardService.IsKeyDown(KeyboardKey.S))
-                {
-                    directionY = 5;
-                }
+                // else if (_keyboardService.IsKeyDown(KeyboardKey.S))
+                // {
+                //     directionY = 5;
+                // }
 
                 // determine horizontal or x-axis direction
                 // if (_keyboardService.IsKeyDown(KeyboardKey.A))
