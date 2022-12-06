@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
@@ -25,11 +26,16 @@ namespace Example.Scaling
                 // get the actors from the cast
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
+                List<Actor> bullets = scene.GetAllActors("bullets");
                 
                 // draw the actors on the screen using the video service
                 _videoService.ClearBuffer();
                 _videoService.Draw(label);
                 _videoService.Draw(actor);
+                foreach (Actor bullet in bullets)
+                {
+                    _videoService.Draw(bullet);
+                }
                 _videoService.FlushBuffer();
             }
             catch (Exception exception)

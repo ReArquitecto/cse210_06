@@ -18,6 +18,11 @@ namespace Byui.Games.Casting
         private Vector2 _velocity = Vector2.Zero;
         
         public Actor() { }
+        public Actor(Vector2 velocity, Vector2 position) 
+        { 
+            _velocity = velocity;
+            _position = position;
+        }
 
         public virtual bool BounceIn(Actor region)
         {
@@ -159,7 +164,7 @@ namespace Byui.Games.Casting
             return _size.X;
         }
 
-        public virtual void Move()
+        public void Move()
         {
             if (_enabled)
             {

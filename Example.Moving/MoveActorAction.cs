@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
@@ -26,11 +27,20 @@ namespace Example.Scaling
             {
                 // get the actors from the scene
                 Actor actor = scene.GetFirstActor("actors");
+                List<Actor> bullets = scene.GetAllActors("bullets");
                 Actor screen = scene.GetFirstActor("screen");
                 
                 // move the actor and wrap it around the screen boundaries
+                foreach (Actor bullet in bullets)
+                {
+                    
+                    bullet.Move();
+                }
                 actor.Move();
                 actor.WrapIn(screen);
+
+                
+
             }
             catch (Exception exception)
             {

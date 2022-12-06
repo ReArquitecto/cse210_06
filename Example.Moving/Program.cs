@@ -39,7 +39,7 @@ namespace Example.Scaling
             RotateActorAction rotateActorAction = new RotateActorAction(serviceFactory);
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
-
+            ShootAction shootAction = new ShootAction(serviceFactory);
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
             scene.AddActor("actors", actor);
@@ -47,6 +47,7 @@ namespace Example.Scaling
             scene.AddActor("screen", screen);
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Input, rotateActorAction);
+            scene.AddAction(Phase.Input, shootAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
 
