@@ -28,13 +28,19 @@ namespace Example.Scaling
                 // get the actors from the scene
                 Actor actor = scene.GetFirstActor("actors");
                 List<Actor> bullets = scene.GetAllActors("bullets");
+                List<Actor> meteors = scene.GetAllActors("meteors");
                 Actor screen = scene.GetFirstActor("screen");
+                
                 
                 // move the actor and wrap it around the screen boundaries, bullets do not wrap
                 foreach (Actor bullet in bullets)
-                {
-                    
+                {  
                     bullet.Move();
+                }
+                foreach (Actor meteor in meteors)
+                {
+                    meteor.Move();
+                    meteor.WrapIn(screen);
                 }
                 actor.Move();
                 actor.WrapIn(screen);

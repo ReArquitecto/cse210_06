@@ -116,7 +116,13 @@ namespace Byui.Games.Casting
         {
             Validator.CheckNotBlank(group);
             Validator.CheckNotNull(actor);
-            
+                
+                
+            if (!_removed.ContainsKey(group))
+            {
+                _removed[group] = new List<Actor>();
+            }
+
             if (!_removed[group].Contains(actor))
             {
                 _removed[group].Add(actor);

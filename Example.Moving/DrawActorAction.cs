@@ -27,6 +27,7 @@ namespace Example.Scaling
                 Label label = (Label) scene.GetFirstActor("labels");
                 Actor actor = scene.GetFirstActor("actors");
                 List<Actor> bullets = scene.GetAllActors("bullets");
+                List<Actor> meteors = scene.GetAllActors("meteors");
                 
                 // draw the actors on the screen using the video service
                 _videoService.ClearBuffer();
@@ -34,6 +35,10 @@ namespace Example.Scaling
                 foreach (Actor bullet in bullets)
                 {
                     _videoService.Draw(bullet);
+                }
+                foreach (Actor meteor in meteors)
+                {
+                    _videoService.Draw(meteor);
                 }
                 _videoService.Draw(actor);
                 _videoService.FlushBuffer();

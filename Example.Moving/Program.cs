@@ -30,6 +30,11 @@ namespace Example.Scaling
             actor.MoveTo(270, 190);
             actor.Tint(Color.Blue());
 
+            Actor meteor = new Actor();
+            meteor.SizeTo(50, 50);
+            meteor.MoveTo(20, 20);
+            meteor.Steer((float)1.0, (float)1.0);
+
             Actor screen = new Actor();
             screen.SizeTo(640, 480);
             screen.MoveTo(0, 0);
@@ -40,16 +45,20 @@ namespace Example.Scaling
             MoveActorAction moveActorAction = new MoveActorAction(serviceFactory);
             DrawActorAction drawActorAction = new DrawActorAction(serviceFactory);
             ShootAction shootAction = new ShootAction(serviceFactory);
+            CollideActorsAction collideAction = new CollideActorsAction(serviceFactory);            
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
             scene.AddActor("actors", actor);
             scene.AddActor("labels", label);
             scene.AddActor("screen", screen);
+            scene.AddActor("meteors", meteor);
+
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Input, rotateActorAction);
             scene.AddAction(Phase.Input, shootAction);
             scene.AddAction(Phase.Update, moveActorAction);
             scene.AddAction(Phase.Output, drawActorAction);
+            scene.AddAction(Phase.Output, collideAction);
 
             // Start the game.
             Director director = new Director(serviceFactory);

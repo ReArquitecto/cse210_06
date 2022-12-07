@@ -134,7 +134,7 @@ namespace Byui.Games.Casting
             return _rotation;
         }
 
-        public virtual float GetScale()
+        public float GetScale()
         {
             return _scale;
         }
@@ -218,7 +218,7 @@ namespace Byui.Games.Casting
             _scale += percent;
         }
 
-        public virtual void ScaleTo(float percent)
+        public void ScaleTo(float percent)
         {
             _scale = percent;
         }
@@ -244,7 +244,7 @@ namespace Byui.Games.Casting
             _velocity = vector;
         }
 
-        public virtual void Steer(float vx, float vy)
+        public void Steer(float vx, float vy)
         {
             _velocity = new Vector2(vx, vy);
         }
