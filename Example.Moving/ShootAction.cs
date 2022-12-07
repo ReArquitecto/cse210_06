@@ -24,14 +24,19 @@ namespace Example.Scaling
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
         {
+            // creates a bullet actor with a slightly faster speed than the players
+            // moving speed. creates the bullet in the middle of the player.
+            
             try
             {
                 Actor player = scene.GetFirstActor("actors");
 
+                //ensures the player cant just fire a stream of bullets
                 shootTimer += 1;
 
                 if (_keyboardService.IsKeyDown(KeyboardKey.Space) & shootTimer >= 20)
                 {
+                    
                     shootTimer = 0;
 
                     float playerRotation = player.GetRotation() % 360;
@@ -48,7 +53,7 @@ namespace Example.Scaling
                     Vector2 playerVelocity = new Vector2(directionX, directionY);
                     Vector2 playerPosition = player.GetPosition();
                     //need to make X and Y based on rotation or put in center again
-                    playerPosition.X = playerPosition.X + player.GetSize().X;
+                    playerPosition.X = playerPosition.X + player.GetSize().X / 2;
                     playerPosition.Y = playerPosition.Y + player.GetSize().Y / 2;
 
                     Actor bullet = new Actor(playerVelocity, playerPosition);

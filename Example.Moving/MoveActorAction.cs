@@ -30,7 +30,7 @@ namespace Example.Scaling
                 List<Actor> bullets = scene.GetAllActors("bullets");
                 Actor screen = scene.GetFirstActor("screen");
                 
-                // move the actor and wrap it around the screen boundaries
+                // move the actor and wrap it around the screen boundaries, bullets do not wrap
                 foreach (Actor bullet in bullets)
                 {
                     
