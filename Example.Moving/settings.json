@@ -1,6 +1,6 @@
 {
   "frameRate": 60,
   "screenCaption": "CSE210 Moving Example",
-  "screenWidth": 640,
-  "screenHeight": 480
+  "screenWidth": 1080,
+  "screenHeight": 550
 }

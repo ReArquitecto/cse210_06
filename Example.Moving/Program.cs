@@ -1,4 +1,5 @@
-﻿using Byui.Games.Casting;
+﻿using System;
+using Byui.Games.Casting;
 using Byui.Games.Directing;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
@@ -20,6 +21,8 @@ namespace Example.Scaling
             // Instantiate a service factory for other objects to use.
             IServiceFactory serviceFactory = new RaylibServiceFactory();
 
+            Random rnd = new Random();
+
             // Instantiate the actors that are used in this example.
             Label label = new Label();
             label.Display("'w', 's', 'a', 'd' to move");
@@ -27,26 +30,26 @@ namespace Example.Scaling
             
             Actor actor = new Actor();
             actor.SizeTo(50, 20);
-            actor.MoveTo(270, 190);
+            actor.MoveTo(0, 275);
             actor.Tint(Color.Blue());
 
             Actor meteor1 = new Actor();
             meteor1.SizeTo(50, 50);
-            meteor1.MoveTo(20, 20);
-            meteor1.Steer((float)1.0, (float)1.0);
+            meteor1.MoveTo(rnd.Next(50, 1030), rnd.Next(0,550));
+            meteor1.Steer((float) rnd.Next(1,3), (float) rnd.Next(1,3));
 
             Actor meteor2 = new Actor();
             meteor2.SizeTo(50, 50);
-            meteor2.MoveTo(500, 150);
-            meteor2.Steer((float)-1.0, (float)-1.0);
+            meteor2.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 550));
+            meteor2.Steer((float) -rnd.Next(1,3), (float) -rnd.Next(1,3));
 
             Actor meteor3 = new Actor();
             meteor3.SizeTo(50, 50);
-            meteor3.MoveTo(180, 200);
-            meteor3.Steer((float)0, (float)3.0);
+            meteor3.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 550));
+            meteor3.Steer((float) rnd.Next(1,3), (float)  -rnd.Next(1,3));
 
             Actor screen = new Actor();
-            screen.SizeTo(640, 480);
+            screen.SizeTo(1080, 550);
             screen.MoveTo(0, 0);
 
             // Instantiate the actions that use the actors.
