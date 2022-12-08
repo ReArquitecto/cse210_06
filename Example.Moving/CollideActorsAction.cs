@@ -58,8 +58,7 @@ namespace Example.Scaling
                     
                     if (player.Overlaps(meteor))
                     {
-                        Console.WriteLine(newMeteors);
-                        scene.RemoveActor("actors", player);
+                        player.SizeTo(0, 0);
                     }
                 }
 
@@ -77,8 +76,13 @@ namespace Example.Scaling
         private Vector2 newVelocity()
         {
             Vector2 velocity = new Vector2();
-                velocity.X = rnd.Next(-2,2);
-                velocity.Y = rnd.Next(-2,2);
+            while(velocity.X == 0 && velocity.Y == 0)
+            {
+                velocity.X = rnd.Next(-4,4);
+                velocity.Y = rnd.Next(-4,4);
+            }
+            
+                
             return velocity;
             }
     }

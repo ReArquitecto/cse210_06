@@ -26,14 +26,24 @@ namespace Example.Scaling
             label.MoveTo(25, 25);
             
             Actor actor = new Actor();
-            actor.SizeTo(100, 100);
+            actor.SizeTo(50, 20);
             actor.MoveTo(270, 190);
             actor.Tint(Color.Blue());
 
-            Actor meteor = new Actor();
-            meteor.SizeTo(50, 50);
-            meteor.MoveTo(20, 20);
-            meteor.Steer((float)1.0, (float)1.0);
+            Actor meteor1 = new Actor();
+            meteor1.SizeTo(50, 50);
+            meteor1.MoveTo(20, 20);
+            meteor1.Steer((float)1.0, (float)1.0);
+
+            Actor meteor2 = new Actor();
+            meteor2.SizeTo(50, 50);
+            meteor2.MoveTo(500, 150);
+            meteor2.Steer((float)-1.0, (float)-1.0);
+
+            Actor meteor3 = new Actor();
+            meteor3.SizeTo(50, 50);
+            meteor3.MoveTo(180, 200);
+            meteor3.Steer((float)0, (float)3.0);
 
             Actor screen = new Actor();
             screen.SizeTo(640, 480);
@@ -51,7 +61,9 @@ namespace Example.Scaling
             scene.AddActor("actors", actor);
             scene.AddActor("labels", label);
             scene.AddActor("screen", screen);
-            scene.AddActor("meteors", meteor);
+            scene.AddActor("meteors", meteor1);
+            scene.AddActor("meteors", meteor2);
+            scene.AddActor("meteors", meteor3);
 
             scene.AddAction(Phase.Input, steerActorAction);
             scene.AddAction(Phase.Input, rotateActorAction);

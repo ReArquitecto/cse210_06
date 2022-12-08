@@ -30,36 +30,40 @@ namespace Example.Scaling
             try
             {
                 Actor player = scene.GetFirstActor("actors");
+                Vector2 playerSize = player.GetSize();
 
                 //ensures the player cant just fire a stream of bullets
                 shootTimer += 1;
 
-                if (_keyboardService.IsKeyDown(KeyboardKey.Space) & shootTimer >= 20)
+                if(playerSize.X != 0 && playerSize.Y != 0)
                 {
-                    
-                    shootTimer = 0;
+                    if (_keyboardService.IsKeyDown(KeyboardKey.Space) & shootTimer >= 20)
+                    {
+                        
+                        shootTimer = 0;
 
-                    float playerRotation = player.GetRotation() % 360;
+                        float playerRotation = player.GetRotation() % 360;
 
-                    if(playerRotation < 0){
-                        playerRotation = 360 + playerRotation;
+                        if(playerRotation < 0){
+                            playerRotation = 360 + playerRotation;
+                        }
+
+                        playerRotation = playerRotation *(float) (3.14159/180);
+
+                        int directionX = (int)Math.Round(Math.Cos(playerRotation) * 7);
+                        int directionY = (int)Math.Round(Math.Sin(playerRotation) * 7);
+
+                        Vector2 playerVelocity = new Vector2(directionX, directionY);
+                        Vector2 playerPosition = player.GetPosition();
+                        //need to make X and Y based on rotation or put in center again
+                        playerPosition.X = playerPosition.X + player.GetSize().X / 2;
+                        playerPosition.Y = playerPosition.Y + player.GetSize().Y / 2;
+
+                        Actor bullet = new Actor(playerVelocity, playerPosition);
+                        bullet.SizeTo(10, 10);
+                        scene.AddActor("bullets", bullet);
+                        shootTimer = 0;
                     }
-
-                    playerRotation = playerRotation *(float) (3.14159/180);
-
-                    int directionX = (int)Math.Round(Math.Cos(playerRotation) * 7);
-                    int directionY = (int)Math.Round(Math.Sin(playerRotation) * 7);
-
-                    Vector2 playerVelocity = new Vector2(directionX, directionY);
-                    Vector2 playerPosition = player.GetPosition();
-                    //need to make X and Y based on rotation or put in center again
-                    playerPosition.X = playerPosition.X + player.GetSize().X / 2;
-                    playerPosition.Y = playerPosition.Y + player.GetSize().Y / 2;
-
-                    Actor bullet = new Actor(playerVelocity, playerPosition);
-                    bullet.SizeTo(10, 10);
-                    scene.AddActor("bullets", bullet);
-                    shootTimer = 0;
                 }
             }
             catch (Exception exception)
