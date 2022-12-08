@@ -30,6 +30,8 @@ namespace Example.Scaling
                 List<Actor> meteors = scene.GetAllActors("meteors");
                 List<Actor> newMeteors = new List<Actor>{};
                 Actor player = scene.GetFirstActor("actors");
+
+                
                 
  
                 foreach (Actor meteor in meteors){
@@ -60,9 +62,15 @@ namespace Example.Scaling
                     {
                         player.SizeTo(0, 0);
                         Label label = (Label) scene.GetFirstActor("labels");
-                        label.Display("'r' to reset");
+                        label.Display("'r' to reset: -1 meteor");
                         label.MoveTo(540, 275);
                     }
+                }
+                if((int)meteors.Count == 0)
+                {
+                    Label label = (Label) scene.GetFirstActor("labels");
+                    label.Display("Good Job! 'r' to reset: +1 meteor");
+                    label.MoveTo(540, 275);;
                 }
 
                 foreach(Actor meteor in newMeteors)

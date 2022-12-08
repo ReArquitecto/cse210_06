@@ -40,7 +40,7 @@ namespace Example.Scaling
                 else
                 {
                     Actor player = scene.GetFirstActor("actors");
-                    if(player.GetSize() == Vector2.Zero)
+                    if(player.GetSize() == Vector2.Zero && meteorLevel != 1)
                     {
                         meteorLevel -= 1;
                     }
