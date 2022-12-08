@@ -35,17 +35,17 @@ namespace Example.Scaling
 
             Actor meteor1 = new Actor();
             meteor1.SizeTo(50, 50);
-            meteor1.MoveTo(rnd.Next(50, 1030), rnd.Next(0,500));
+            meteor1.MoveTo(rnd.Next(50, 1030), rnd.Next(0,4500));
             meteor1.Steer((float) rnd.Next(1,3), (float) rnd.Next(1,3));
 
             Actor meteor2 = new Actor();
             meteor2.SizeTo(50, 50);
-            meteor2.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 500));
+            meteor2.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 450));
             meteor2.Steer((float) -rnd.Next(1,3), (float) -rnd.Next(1,3));
 
             Actor meteor3 = new Actor();
             meteor3.SizeTo(50, 50);
-            meteor3.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 500));
+            meteor3.MoveTo(rnd.Next(50, 1030), rnd.Next(0, 450));
             meteor3.Steer((float) rnd.Next(1,3), (float)  -rnd.Next(1,3));
 
             Actor screen = new Actor();
