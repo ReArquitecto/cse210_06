@@ -25,8 +25,6 @@ namespace Example.Scaling
 
             // Instantiate the actors that are used in this example.
             Label label = new Label();
-            label.Display("'w', 's', 'a', 'd' to move and 'r' to reset");
-            label.MoveTo(25, 25);
             
             Actor actor = new Actor();
             actor.SizeTo(50, 20);

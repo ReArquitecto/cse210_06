@@ -16,6 +16,7 @@ namespace Example.Scaling
         private IKeyboardService _keyboardService;
 
         private int resetTimer = 0;
+        private int meteorLevel = 3;
 
         public ResetAllAction(IServiceFactory serviceFactory)
         {
@@ -30,17 +31,38 @@ namespace Example.Scaling
             if (_keyboardService.IsKeyDown(KeyboardKey.R) && resetTimer > 20)
             {
                 resetTimer = 0;
+
+                List<Actor> meteors = scene.GetAllActors("meteors");
+                if((int)meteors.Count == 0)
+                {
+                    meteorLevel += 1;
+                }
+                else
+                {
+                    Actor player = scene.GetFirstActor("actors");
+                    if(player.GetSize() == Vector2.Zero)
+                    {
+                        meteorLevel -= 1;
+                    }
+                }
                 
                 
                 this.reset(scene, "meteors");
                 this.reset(scene, "actors");
                 this.reset(scene, "bullets");
-                // this.reset(scene, "labels");
+                this.reset(scene, "labels");
 
+                Label label = new Label();
+                scene.AddActor("labels", label);
+                
                 this.add(scene, "actors");
-                this.add(scene, "meteors");
-                this.add(scene, "meteors");
-                this.add(scene, "meteors");
+                for (int meteor = 1; meteor <= meteorLevel; meteor += 1)
+                {
+                    this.add(scene, "meteors");
+                }
+                
+
+                
             }
 
         }

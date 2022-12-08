@@ -59,6 +59,9 @@ namespace Example.Scaling
                     if (player.Overlaps(meteor))
                     {
                         player.SizeTo(0, 0);
+                        Label label = (Label) scene.GetFirstActor("labels");
+                        label.Display("'r' to reset");
+                        label.MoveTo(540, 275);
                     }
                 }
 
