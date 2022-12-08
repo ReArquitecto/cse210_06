@@ -28,11 +28,11 @@ namespace Example.Scaling
                 // rotate left or right based on key pressed
                 if (_keyboardService.IsKeyDown(KeyboardKey.A))
                 {
-                    actor.Rotate(-2);
+                    actor.Rotate(-3);
                 }
                 else if (_keyboardService.IsKeyDown(KeyboardKey.D))
                 {
-                    actor.Rotate(2);
+                    actor.Rotate(3);
                 }
             }
             catch (Exception exception)
