@@ -1,3 +1,9 @@
-# Example.Gravity
-An example of how to use the Byui.Games core classes to move an actor with gravity and 
-restrict it to the boundaries of the screen.
+# Instructions
+
+move into the "example.moving" file before running
+
+W move foreward
+A turn left
+D turn Right 
+Space shoot
+R restart
