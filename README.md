@@ -2,7 +2,7 @@
 
 move into the "example.moving" file before running
 
-W move foreward
+W move forward
 A turn left
 D turn Right 
 Space shoot
